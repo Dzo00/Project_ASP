@@ -16,7 +16,7 @@ namespace Project_ASP.DataAccess.Configurations
             builder.Property(x => x.Name).IsRequired().HasMaxLength(20);
             builder.HasIndex(x => x.Name).IsUnique();
             builder.HasMany(x => x.Recipes)
-                    .WithOne()
+                    .WithOne(x => x.Diet)
                     .HasForeignKey(x => x.DietId)
                     .OnDelete(DeleteBehavior.Restrict);
         }

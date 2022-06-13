@@ -20,7 +20,6 @@ namespace Project_ASP.DataAccess.Configurations
             builder.Property(x => x.NumOfServings).IsRequired();
             builder.Property(x => x.TimeToCook).IsRequired();
             builder.Property(x => x.DietId).IsRequired();
-            builder.Property(x => x.DietId).IsRequired();
             builder.Property(x => x.UserId).IsRequired();
 
             builder.HasIndex(x => x.Title);

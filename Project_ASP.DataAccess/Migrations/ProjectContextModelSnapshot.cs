@@ -400,9 +400,6 @@ namespace Project_ASP.DataAccess.Migrations
                     b.Property<int>("DietId")
                         .HasColumnType("int");
 
-                    b.Property<int?>("DietId1")
-                        .HasColumnType("int");
-
                     b.Property<int>("EntityStatus")
                         .HasColumnType("int");
 
@@ -433,8 +430,6 @@ namespace Project_ASP.DataAccess.Migrations
                     b.HasKey("Id");
 
                     b.HasIndex("DietId");
-
-                    b.HasIndex("DietId1");
 
                     b.HasIndex("Title");
 
@@ -683,15 +678,11 @@ namespace Project_ASP.DataAccess.Migrations
 
             modelBuilder.Entity("Project_ASP.Domain.Entities.Recipe", b =>
                 {
-                    b.HasOne("Project_ASP.Domain.Entities.Diet", null)
+                    b.HasOne("Project_ASP.Domain.Entities.Diet", "Diet")
                         .WithMany("Recipes")
                         .HasForeignKey("DietId")
                         .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
-
-                    b.HasOne("Project_ASP.Domain.Entities.Diet", "Diet")
-                        .WithMany()
-                        .HasForeignKey("DietId1");
 
                     b.HasOne("Project_ASP.Domain.Entities.User", "User")
                         .WithMany("Recipes")

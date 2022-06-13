@@ -216,7 +216,6 @@ namespace Project_ASP.DataAccess.Migrations
                     NumOfServings = table.Column<int>(type: "int", nullable: false),
                     DietId = table.Column<int>(type: "int", nullable: false),
                     UserId = table.Column<int>(type: "int", nullable: false),
-                    DietId1 = table.Column<int>(type: "int", nullable: true),
                     EntityStatus = table.Column<int>(type: "int", nullable: false),
                     CreatedAt = table.Column<DateTime>(type: "datetime2", nullable: false),
                     CreatedBy = table.Column<string>(type: "nvarchar(max)", nullable: false),
@@ -229,12 +228,6 @@ namespace Project_ASP.DataAccess.Migrations
                     table.ForeignKey(
                         name: "FK_Recipes_Diets_DietId",
                         column: x => x.DietId,
-                        principalTable: "Diets",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Restrict);
-                    table.ForeignKey(
-                        name: "FK_Recipes_Diets_DietId1",
-                        column: x => x.DietId1,
                         principalTable: "Diets",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Restrict);
@@ -454,11 +447,6 @@ namespace Project_ASP.DataAccess.Migrations
                 name: "IX_Recipes_DietId",
                 table: "Recipes",
                 column: "DietId");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_Recipes_DietId1",
-                table: "Recipes",
-                column: "DietId1");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Recipes_Title",

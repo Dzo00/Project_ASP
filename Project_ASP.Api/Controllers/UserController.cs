@@ -52,7 +52,7 @@ namespace Project_ASP.Api.Controllers
         //    return StatusCode(204);
         //}
 
-        [HttpPut("{id}")]
+        [HttpPut("{id}")] // Update User Details
         public IActionResult Put(int id, [FromBody] UpdateUserDto dto, [FromServices] IUpdateUserCommand command)
         {
             dto.Id = id;
@@ -60,7 +60,7 @@ namespace Project_ASP.Api.Controllers
             return StatusCode(204);
         }
 
-        [HttpDelete("{id}")]
+        [HttpDelete("{id}")] // Delete Account, samo svoj moze
         public IActionResult Delete(int id, [FromServices] IDeleteAccountCommand command)
         {
             _handler.HandleCommand(command, id);

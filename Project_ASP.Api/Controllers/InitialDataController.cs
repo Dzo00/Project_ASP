@@ -162,6 +162,22 @@ namespace Project_ASP.Api.Controllers
                 new Permission {
                     Name = "Delete Account",
                     Description = "Delete account"
+                },
+                new Permission {//26
+                    Name = "Rate Recipe",
+                    Description = "Add rate to a recipe"
+                },
+                new Permission {
+                    Name = "Change Rate",
+                    Description = "Update your rate"
+                },
+                new Permission {
+                    Name = "Add Comment on recipe",
+                    Description = "Add comment to recipe"
+                },
+                new Permission {
+                    Name = "Delete Comment",
+                    Description = "Delete Comment from recipe"
                 }
             };
 
@@ -290,7 +306,7 @@ namespace Project_ASP.Api.Controllers
                 {
                     Role = roles.First(),
                     Permission = permissions.ElementAt(20)
-                },///dd
+                },
                 new RolePermission
                 {
                     Role = roles.Last(),
@@ -326,6 +342,46 @@ namespace Project_ASP.Api.Controllers
                     Role = roles.First(),
                     Permission = permissions.ElementAt(25)
                 },
+                new RolePermission
+                {
+                    Role = roles.Last(),
+                    Permission = permissions.ElementAt(26)
+                },
+                new RolePermission
+                {
+                    Role = roles.Last(),
+                    Permission = permissions.ElementAt(27)
+                },
+                new RolePermission
+                {
+                    Role = roles.First(),
+                    Permission = permissions.ElementAt(26)
+                },
+                new RolePermission
+                {
+                    Role = roles.First(),
+                    Permission = permissions.ElementAt(27)
+                },
+                new RolePermission
+                {
+                    Role = roles.Last(),
+                    Permission = permissions.ElementAt(28)
+                },
+                new RolePermission
+                {
+                    Role = roles.Last(),
+                    Permission = permissions.ElementAt(29)
+                },
+                new RolePermission
+                {
+                    Role = roles.First(),
+                    Permission = permissions.ElementAt(28)
+                },
+                new RolePermission
+                {
+                    Role = roles.First(),
+                    Permission = permissions.ElementAt(29)
+                },
             };
 
             var diets = new List<Diet>
@@ -353,10 +409,14 @@ namespace Project_ASP.Api.Controllers
                 new Diet
                 {
                     Name = "Vegetarian"
+                },
+                new Diet
+                {
+                    Name = "Normal"
                 }
             };
 
-            var ingredientTypes = new List<IngredientType> { 
+            var ingredientTypes = new List<IngredientType> {
                 new IngredientType {
                     Name = "Dairy"
                 },
@@ -384,12 +444,86 @@ namespace Project_ASP.Api.Controllers
                 }
             };
 
-            var ingredients = new List<Ingredient> { 
-                new Ingredient {}
+            var ingredients = new List<Ingredient> {
+                new Ingredient { Name = "Eggs", IngredientType = ingredientTypes.First()},
+                new Ingredient { Name = "Milk", IngredientType = ingredientTypes.First()},
+                new Ingredient { Name = "Goat cheese", IngredientType = ingredientTypes.First()},
+                new Ingredient { Name = "Carrot", IngredientType = ingredientTypes.ElementAt(1)},
+                new Ingredient { Name = "Onion", IngredientType = ingredientTypes.ElementAt(1)},
+                new Ingredient { Name = "Red Bell Pepper", IngredientType = ingredientTypes.ElementAt(1)},
+                new Ingredient { Name = "Apple", IngredientType = ingredientTypes.ElementAt(2)},
+                new Ingredient { Name = "Blueberry", IngredientType = ingredientTypes.ElementAt(2)},
+                new Ingredient { Name = "Mango", IngredientType = ingredientTypes.ElementAt(2)},
+                new Ingredient { Name = "Chicken Breasts", IngredientType = ingredientTypes.ElementAt(3)},
+                new Ingredient { Name = "Salmon", IngredientType = ingredientTypes.ElementAt(3)},
+                new Ingredient { Name = "Rosemary", IngredientType = ingredientTypes.ElementAt(4)},
+                new Ingredient { Name = "Salt", IngredientType = ingredientTypes.ElementAt(4)},
+                new Ingredient { Name = "Pepper", IngredientType = ingredientTypes.ElementAt(4)},
+                new Ingredient { Name = "Cocount Oil", IngredientType = ingredientTypes.ElementAt(5)},
+                new Ingredient { Name = "Dry Beans", IngredientType = ingredientTypes.ElementAt(5)},
+                new Ingredient { Name = "Peas", IngredientType = ingredientTypes.ElementAt(6)},
+                new Ingredient { Name = "Sunflower Oil", IngredientType = ingredientTypes.ElementAt(6)},
+                new Ingredient { Name = "Vanilla extract", IngredientType = ingredientTypes.ElementAt(7)},
+                new Ingredient { Name = "Flour", IngredientType = ingredientTypes.ElementAt(7)},
+            };
+
+            var pictures = new List<Image>
+            {
+                new Image {Path = "1379cbbd-3c90-4a19-a346-27e466f959a3_spellbreak.png", Alt = "spellbreak"},
+                new Image {Path = "464cb3d9-3239-4ba1-b643-8359d4af6087_as-cr-odys.jpg", Alt = "odys"},
+                new Image {Path = "97a46c18-8118-453d-8e57-b165c0dbd8ed_as-cr-rogue.jpg", Alt = "rogue"},
+            };
+
+            var recipes = new List<Recipe>
+            {
+                new Recipe {
+                    Title = "Prvi recept",
+                    Description = "Prvi recept neki opis",
+                    Guide = "Prvi recept guide za njega",
+                    TimeToCook = 50,
+                    NumOfServings = 4,
+                    Diet = diets.First(),
+                    AvgRate = 0,
+                    User = users.Last()
+                },
+                new Recipe {
+                    Title = "Drigi recept",
+                    Description = "Drigi recept neki opis",
+                    Guide = "Drigi recept guide za njega",
+                    TimeToCook = 150,
+                    NumOfServings = 6,
+                    Diet = diets.Last(),
+                    AvgRate = 0,
+                    User = users.First()
+                }
+            };
+
+            var recipeImages = new List<RecipeImage> {
+                new RecipeImage { Recipe = recipes.First(), Image = pictures.First() },
+                new RecipeImage { Recipe = recipes.First(), Image = pictures.ElementAt(1) },
+                new RecipeImage { Recipe = recipes.Last(), Image = pictures.Last() }
+            };
+
+            var comments = new List<Comment> {
+                new Comment { Recipe = recipes.First(), User = users.First(), CommentText = "Odlican recept, za svaku preporuku" },
+                new Comment { Recipe = recipes.First(), User = users.Last(), CommentText = "Hvala :)" }, // cringe x 2
+                new Comment { Recipe = recipes.Last(), User = users.Last(), CommentText = "Ispalo mi je kao sa slike, zadovolja sam. BRAVO!" } // cringe
+            };
+
+            var ingredientRecipes = new List<IngredientRecipe> {
+                new IngredientRecipe{ Recipe=recipes.First(), Ingredient = ingredients.First(), Measure = Domain.Enums.eMeasure.NoMeasure, Quantity = "3" },
+                new IngredientRecipe{ Recipe=recipes.First(), Ingredient = ingredients.ElementAt(1), Measure = Domain.Enums.eMeasure.ml, Quantity = "250" },
+                new IngredientRecipe{ Recipe=recipes.First(), Ingredient = ingredients.ElementAt(19), Measure = Domain.Enums.eMeasure.gr, Quantity = "250" },
+                new IngredientRecipe{ Recipe=recipes.First(), Ingredient = ingredients.ElementAt(18), Measure = Domain.Enums.eMeasure.packet, Quantity = "1" },
+                new IngredientRecipe{ Recipe=recipes.Last(), Ingredient = ingredients.First(), Measure = Domain.Enums.eMeasure.NoMeasure, Quantity = "4" },
+                new IngredientRecipe{ Recipe=recipes.Last(), Ingredient = ingredients.ElementAt(9), Measure = Domain.Enums.eMeasure.gr, Quantity = "450" },
+                new IngredientRecipe{ Recipe=recipes.Last(), Ingredient = ingredients.ElementAt(19), Measure = Domain.Enums.eMeasure.gr, Quantity = "250" },
+                new IngredientRecipe{ Recipe=recipes.Last(), Ingredient = ingredients.ElementAt(12), Measure = Domain.Enums.eMeasure.NoMeasure, Quantity = "po ukusu" },
+                new IngredientRecipe{ Recipe=recipes.Last(), Ingredient = ingredients.ElementAt(13), Measure = Domain.Enums.eMeasure.NoMeasure, Quantity = "po ukusu" },
             };
 
             // Moram ovako za permisije, jer mi se poremeti redosled ako je AddRange
-            foreach(var per in permissions)
+            foreach (var per in permissions)
             {
                 Context.Permissions.Add(per);
                 Context.SaveChanges();
@@ -400,7 +534,12 @@ namespace Project_ASP.Api.Controllers
             Context.RolePermissions.AddRange(rolePermissions);
             Context.Diets.AddRange(diets);
             Context.IngredientTypes.AddRange(ingredientTypes);
-            //Context.Ingredients.AddRange(ingredients);
+            Context.Ingredients.AddRange(ingredients);
+            Context.Images.AddRange(pictures);
+            Context.Recipes.AddRange(recipes);
+            Context.RecipeImages.AddRange(recipeImages);
+            Context.Comments.AddRange(comments);
+            Context.IngredientRecipes.AddRange(ingredientRecipes);
             Context.SaveChanges();
             return StatusCode(201);
         }

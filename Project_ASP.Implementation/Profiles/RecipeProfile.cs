@@ -13,7 +13,7 @@ namespace Project_ASP.Implementation.Profiles
     {
         public RecipeProfile()
         {
-            CreateMap<RecipeDto, Recipe>().ReverseMap();
+            CreateMap<Recipe, RecipeDto>().ReverseMap();
         }
     }
 }

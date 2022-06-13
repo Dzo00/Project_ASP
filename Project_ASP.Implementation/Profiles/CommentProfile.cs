@@ -13,7 +13,8 @@ namespace Project_ASP.Implementation.Profiles
     {
         public CommentProfile()
         {
-            CreateMap<CommentDto, Comment>().ReverseMap();
+            CreateMap<CommentDto, Comment>();
+            CreateMap<Comment, CommentDto>().ForMember(x => x.UserDisplayName, opt => opt.MapFrom(y => y.User.DisplayName));
         }
     }
 }

@@ -52,7 +52,7 @@ namespace Project_ASP.Implementation.Validators
                     RuleForEach(x => x.Ingredients)
                        .Cascade(CascadeMode.Stop)
                        .Must(x => context.Ingredients.Any(y => y.Id == x.IngredientId)).WithMessage("Selected Ingredient does not exist in the system")
-                       .Must(x => x.Quantity > 0).WithMessage("Quantity is requied")
+                       .Must(x => x.Quantity != "0" && !string.IsNullOrEmpty(x.Quantity)).WithMessage("Quantity is requied")
                        .ChildRules(child => child.RuleFor(x => x.MeasureId).NotNull().WithMessage("Measure is requied"));
                 });
             RuleFor(x => x.Pictures)

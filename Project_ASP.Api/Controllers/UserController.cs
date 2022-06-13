@@ -38,19 +38,34 @@ namespace Project_ASP.Api.Controllers
             return StatusCode(204);
         }
 
-        //[HttpPost]
-        //public IActionResult CommentPost([FromBody] RegisterUserDto dto, [FromServices] IAddNewAdminCommand command)
+        [HttpPost]
+        public IActionResult CommentRecipe([FromBody] CreateCommentDto dto, [FromServices] IAddCommentCommand command)
+        {
+            _handler.HandleCommand(command, dto);
+            return StatusCode(204);
+        }
+
+        [HttpPost]
+        public IActionResult RateRecipe([FromBody] CreateRateDto dto, [FromServices] IRateRecipeCommand command)
+        {
+            _handler.HandleCommand(command, dto);
+            return StatusCode(204);
+        }
+
+        //[HttpDelete]
+        //public IActionResult DeleteComment(int id, [FromServices] IAddNewAdminCommand command)
         //{
-        //    _handler.HandleCommand(command, dto);
+        //    _handler.HandleCommand(command, id);
         //    return StatusCode(204);
         //}
 
-        //[HttpPost]
-        //public IActionResult RatePost([FromBody] RegisterUserDto dto, [FromServices] IAddNewAdminCommand command)
-        //{
-        //    _handler.HandleCommand(command, dto);
-        //    return StatusCode(204);
-        //}
+        [HttpPut]
+        public IActionResult UpdateRate(int id, [FromBody] UpdateRateDto dto, [FromServices] IUpdateRateCommand command)
+        {
+            dto.Id = id;
+            _handler.HandleCommand(command, dto);
+            return StatusCode(204);
+        }
 
         [HttpPut("{id}")] // Update User Details
         public IActionResult Put(int id, [FromBody] UpdateUserDto dto, [FromServices] IUpdateUserCommand command)

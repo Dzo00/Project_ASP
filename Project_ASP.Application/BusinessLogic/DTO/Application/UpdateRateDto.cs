@@ -6,10 +6,9 @@ using System.Threading.Tasks;
 
 namespace Project_ASP.Application.BusinessLogic.DTO.Application
 {
-    public class RateDto : BaseDto
+    public class UpdateRateDto
     {
-        public int RecipeId { get; set; }
-        public int UserId { get; set; }
-        public int RateValue { get; set; }
+        public int Id { get; set; }
+        public int? RateValue { get; set; }
     }
 }

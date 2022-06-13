@@ -33,9 +33,9 @@ namespace Project_ASP.Implementation.BusinessLogic
         public UserDetailsDto Execute(int id)
         {
             var user = context.Users
-                                .Include(x => x.Comments)
-                                .Include(x => x.Rates)
-                                .Include(x => x.Recipes)
+                                .Include(x => x.Comments.Where(x=>x.EntityStatus == Domain.Enums.eEntityStatus.Active))
+                                .Include(x => x.Rates.Where(x => x.EntityStatus == Domain.Enums.eEntityStatus.Active))
+                                .Include(x => x.Recipes.Where(x => x.EntityStatus == Domain.Enums.eEntityStatus.Active))
                                 .Where(x => x.Id == id).FirstOrDefault();
 
             if (user == null || user.EntityStatus == Domain.Enums.eEntityStatus.Deleted)

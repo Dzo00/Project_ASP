@@ -33,9 +33,9 @@ namespace Project_ASP.Implementation.BusinessLogic
         {
             var query = context.Recipes
                                .Include(x => x.Ingredients).ThenInclude(x => x.Ingredient)
-                               .Include(x => x.Comments)
-                               .Include(x => x.Rates)
-                               .Include(x => x.Images).ThenInclude(x => x.Image)
+                               .Include(x => x.Comments.Where(x => x.EntityStatus == Domain.Enums.eEntityStatus.Active))
+                               .Include(x => x.Rates.Where(x => x.EntityStatus == Domain.Enums.eEntityStatus.Active))
+                               .Include(x => x.Images.Where(x => x.EntityStatus == Domain.Enums.eEntityStatus.Active)).ThenInclude(x => x.Image)
                                .Where(x => x.EntityStatus == Domain.Enums.eEntityStatus.Active);
 
 

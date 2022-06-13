@@ -37,6 +37,8 @@ namespace Project_ASP.Api.Extensions
             services.AddTransient<UpdateRecipeValidator>();
             services.AddTransient<RegisterUserValidator>();
             services.AddTransient<UpdateAccountValidator>();
+            services.AddTransient<AddRateValidator>();
+            services.AddTransient<AddCommentValidator>();
             return services;
         }
 
@@ -85,6 +87,10 @@ namespace Project_ASP.Api.Extensions
             // User and Admin
             services.AddTransient<IDeleteAccountCommand, EfDeleteAccountCommand>();
             services.AddTransient<IUpdateUserCommand, EfUpdateUserCommand>();
+            services.AddTransient<IRateRecipeCommand, EfRateRecipeCommand>();
+            services.AddTransient<IUpdateRateCommand, EfUpdateRateCommand>();
+            services.AddTransient<IAddCommentCommand, EfAddCommentCommand>();
+            services.AddTransient<IDeleteCommentCommand, EfDeleteCommentCommand>();
             //
 
             return services;

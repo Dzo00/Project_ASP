@@ -15,7 +15,7 @@ namespace Project_ASP.Application.BusinessLogic.DTO.Application
         public float AvgRate { get; set; }
         public int NumOfServings { get; set; }
         public int DietId { get; set; }
-        public UserDto User { get; set; }
+        public int UserId { get; set; }
         public List<CommentDto> Comments { get; set; }
         public List<IngredientRecipeDto> Ingredients { get; set; }
         public List<RateDto> Rates { get; set; }

@@ -65,7 +65,9 @@ namespace Project_ASP.Api
             services.AddAutoMapper(typeof(EfGetIngredientTypesQuery).Assembly);
             services.AddAutoMapper(typeof(EfGetIngredientsQuery).Assembly);
             services.AddAutoMapper(typeof(EfGetRecipesQuery).Assembly);
+            services.AddAutoMapper(typeof(EfGetRecipeQuery).Assembly);
             services.AddAutoMapper(typeof(EfGetUsersQuery).Assembly);
+            services.AddAutoMapper(typeof(EfGetUserQuery).Assembly);
             //services.AddAutoMapper(typeof(EfGetLogsQuery).Assembly);
 
 

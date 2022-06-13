@@ -163,7 +163,7 @@ namespace Project_ASP.Api.Controllers
                     Name = "Delete Account",
                     Description = "Delete account"
                 },
-                new Permission {//26
+                new Permission {// el At 26
                     Name = "Rate Recipe",
                     Description = "Add rate to a recipe"
                 },

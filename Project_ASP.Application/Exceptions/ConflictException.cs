@@ -8,6 +8,10 @@ namespace Project_ASP.Application.Exceptions
 {
     public class ConflictException : BaseApplicationException
     {
+        public ConflictException(string message)
+            : base(message)
+        {
+        }
         public ConflictException(string entityName, object key, string referencedId)
             : base($"Can not delete Entity '{entityName}' with key '{key}' because it is referenced in {referencedId};")
         {

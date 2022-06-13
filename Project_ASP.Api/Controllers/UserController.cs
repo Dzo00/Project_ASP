@@ -59,7 +59,7 @@ namespace Project_ASP.Api.Controllers
             return StatusCode(204);
         }
 
-        [HttpPut]
+        [HttpPut("UpdateRate/{id}")]
         public IActionResult UpdateRate(int id, [FromBody] UpdateRateDto dto, [FromServices] IUpdateRateCommand command)
         {
             dto.Id = id;

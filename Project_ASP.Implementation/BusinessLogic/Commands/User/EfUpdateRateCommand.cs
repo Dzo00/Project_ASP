@@ -45,7 +45,7 @@ namespace Project_ASP.Implementation.BusinessLogic
             {
                 throw new ValidationException("RateValue", "Value is required");
             }
-            if(request.RateValue.Value < 1 && request.RateValue.Value > 5)
+            if(request.RateValue.Value < 1 || request.RateValue.Value > 5)
             {
                 throw new ValidationException("RateValue", "Value can be 1 - 5");
             }

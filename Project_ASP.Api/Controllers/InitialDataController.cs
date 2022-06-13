@@ -325,6 +325,11 @@ namespace Project_ASP.Api.Controllers
                 new RolePermission
                 {
                     Role = roles.Last(),
+                    Permission = permissions.ElementAt(23)
+                },
+                new RolePermission
+                {
+                    Role = roles.Last(),
                     Permission = permissions.ElementAt(24)
                 },
                 new RolePermission

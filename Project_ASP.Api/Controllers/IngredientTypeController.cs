@@ -26,7 +26,6 @@ namespace Project_ASP.Api.Controllers
         }
 
         [HttpGet("{id}")]
-        [AllowAnonymous]
         public IActionResult Get(int id, [FromServices] IGetIngredientTypeQuery query)
         {
             return Ok(_handler.HandleQuery(query, id));

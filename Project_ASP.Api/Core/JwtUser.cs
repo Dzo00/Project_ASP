@@ -17,7 +17,7 @@ namespace Project_ASP.Api.Core
 
         public int Id => 0;
 
-        public IEnumerable<int> PermissionIds => new List<int> { 1 };
+        public IEnumerable<int> PermissionIds => new List<int> { 1, 18, 19 };
 
         public string Email => "anonimous@gmail.com";
     }

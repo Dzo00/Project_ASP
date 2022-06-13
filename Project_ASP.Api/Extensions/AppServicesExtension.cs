@@ -78,6 +78,8 @@ namespace Project_ASP.Api.Extensions
 
             // Admin
             services.AddTransient<IAddNewAdminCommand, EfCreateNewAdminCommand>();
+            services.AddTransient<IGetUsersQuery, EfGetUsersQuery>();
+            services.AddTransient<IGetUserQuery, EfGetUserQuery>();
             //
 
             // User and Admin

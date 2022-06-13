@@ -10,7 +10,7 @@ namespace Project_ASP.Application.BusinessLogic.DTO.Application
     {
         public string FirstName { get; set; }
         public string LastName { get; set; }
-        public string DisplatName { get; set; }
+        public string DisplayName { get; set; }
         public string Email { get; set; }
         public List<CommentDto> Comments { get; set; }
         public List<RateDto> Rates { get; set; }

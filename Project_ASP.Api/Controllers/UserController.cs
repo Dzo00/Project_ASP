@@ -38,26 +38,26 @@ namespace Project_ASP.Api.Controllers
             return StatusCode(204);
         }
 
-        [HttpPost]
+        [HttpPost("CommentRecipe")]
         public IActionResult CommentRecipe([FromBody] CreateCommentDto dto, [FromServices] IAddCommentCommand command)
         {
             _handler.HandleCommand(command, dto);
             return StatusCode(204);
         }
 
-        [HttpPost]
+        [HttpPost("RateRecipe")]
         public IActionResult RateRecipe([FromBody] CreateRateDto dto, [FromServices] IRateRecipeCommand command)
         {
             _handler.HandleCommand(command, dto);
             return StatusCode(204);
         }
 
-        //[HttpDelete]
-        //public IActionResult DeleteComment(int id, [FromServices] IAddNewAdminCommand command)
-        //{
-        //    _handler.HandleCommand(command, id);
-        //    return StatusCode(204);
-        //}
+        [HttpDelete("DeleteComment/{id}")]
+        public IActionResult DeleteComment(int id, [FromServices] IDeleteCommentCommand command)
+        {
+            _handler.HandleCommand(command, id);
+            return StatusCode(204);
+        }
 
         [HttpPut]
         public IActionResult UpdateRate(int id, [FromBody] UpdateRateDto dto, [FromServices] IUpdateRateCommand command)
